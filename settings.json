@@ -1,0 +1,36 @@
+{
+    "server_id": 588176999215005696,
+    "working?": "tuvieja",
+    "staffPingChannelID": 588388901434163228,
+    "staffPingEnable": true,
+    "staffPingRoleID": 588201589156741131,
+    "queues": {
+        "enabled": true,
+        "permissions": {
+            "588784577745649667": [
+                "shoo/drag",
+                "lock/unlock",
+                "next",
+                "reset",
+                "shuffle"
+            ],
+            "588783540238286865": [
+                "create/delete",
+                "shoo/drag",
+                "lock/unlock",
+                "next",
+                "reset",
+                "shuffle"
+            ]
+        }
+    },
+    "staffPing": {
+        "enabled": true,
+        "role": 588201589156741131,
+        "channel": 588388901434163228
+    },
+    "roles": {
+        "Host": 588784577745649667,
+        "Staff": 588783540238286865
+    }
+}

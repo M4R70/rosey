@@ -1,0 +1,18 @@
+{
+"server_id":588176999215005696,
+"staffPing":
+            {
+            "enabled":true,
+            "role":588201589156741131,
+            "channel":588388901434163228
+            },
+"queues":
+            {
+                "enabled":false,
+                "permissions":
+                                {
+                                    "create/delete":[588413758259593216]
+                                }
+
+            }
+}
