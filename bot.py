@@ -16,14 +16,15 @@ bot = commands.AutoShardedBot(command_prefix='!', formatter=None, description=No
 async def on_ready():
     print(f"Logged in as {bot.user}")
     print(f"ID: {bot.user.id}")
-    for cog in os.listdir('cogs/'):
-        try:
+    try:
+        for cog in os.listdir('cogs/'):
+
             if cog.endswith('.py'):
                 bot.load_extension("cogs."+cog[:-3])
-            print("All cogs loaded OK")
-        except Exception as e:
-            print("Error loading cog")
-            print(e)
+        print("All cogs loaded OK")
+    except Exception as e:
+        print("Error loading cog")
+        print(e)
 
 
 bot.run(token)

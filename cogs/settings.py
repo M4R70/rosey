@@ -46,6 +46,7 @@ class settings(commands.Cog):
 		except:
 			await ctx.send("Here are the current settings for this server",file=dfile)
 
+	@commands.is_owner()
 	@commands.command(aliases=['updateSettings'])
 	async def _updateSettings(self,ctx,*,override=None):
 		if override == None:

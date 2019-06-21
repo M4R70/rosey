@@ -14,6 +14,9 @@ class errors(commands.Cog):
 		if isinstance(e,commands.CommandNotFound):
 			return
 		
+		if isinstance(e,generic):
+			await ctx.send(e.message)
+
 		if isinstance(e,notAuthorized):
 			await ctx.send(" You are not authorized to do this :x:")
 		
@@ -44,6 +47,10 @@ class errors(commands.Cog):
 
 def setup(bot):
 	utils.cog.setupper(bot,errors(bot),"errors")
+
+
+class generic(discord.ext.commands.CommandError):
+	pass
 
 class notAuthorized(discord.ext.commands.CommandError):
 	pass

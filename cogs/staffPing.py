@@ -8,7 +8,15 @@ import utils.cog
 class staffPing(commands.Cog):
 	def __init__(self,bot):
 		self.bot = bot
+		self.open_cases = []
 
+
+	@commands.Cog.listener()
+	async def on_reaction_add(self,reaction,user):
+		if user.bot:
+			return
+		if reaction.message.id in self.open_cases:
+			await reaction.message.delete()
 		
 
 	@commands.Cog.listener()
@@ -27,9 +35,11 @@ class staffPing(commands.Cog):
 				e.set_author(name=message.author.display_name, icon_url=message.author.avatar_url)
 				e.add_field(name="Channel",value=message.channel.name,inline=False)
 				e.add_field(name="Message",value=content,inline=False)
-				e.add_field(name="Jump Link",value=message.jump_url)
-				await pingChannel.send('@here',embed=e)
+				e.add_field(name="Jump Link",value=f"[here]({message.jump_url})")
+				case = await pingChannel.send('@here',embed=e)
 				await message.channel.send("The Staff Team has been alerted :thumbsup:")
+				await case.add_reaction("\U00002611")
+				self.open_cases.append(case.id)
 
 def setup(bot):
 	utils.cog.setupper(bot,staffPing(bot),"staffPing")

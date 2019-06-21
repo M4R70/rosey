@@ -13,11 +13,12 @@ class cogManager(commands.Cog):
 	@commands.command(aliases=["r"])
 	@dev()
 	async def reload(self,ctx,*,cog=None):
-		self.last = cog
+		
 		if cog == None:
 			cog = self.last
 		else:
 			cog = 'cogs.'+cog
+		self.last = cog
 		try:
 			self.bot.reload_extension(cog)
 			await ctx.send(f'{cog} Reloaded')
@@ -36,11 +37,16 @@ class cogManager(commands.Cog):
 		except Exception as e:
 			await ctx.send("""**Traceback:**\n```{0}```\n""".format(' '.join(traceback.format_exception(None, e, e.__traceback__))))
 	
-	@commands.command(alliases=["l"])
+	@commands.command(aliases=["l"])
 	@dev()
-	async def load(self,ctx,*,cog:str):
+	async def load(self,ctx,*,cog=None):
+		
+		if cog == None:
+			cog = self.last
+		else:
+			cog = 'cogs.'+cog
 		self.last = cog
-		cog = 'cogs.'+cog
+		
 		try:
 			importlib.reload(cogs)
 			self.bot.load_extension(cog)
