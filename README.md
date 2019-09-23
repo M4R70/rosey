@@ -1,4 +1,4 @@
-Discord bot built for the Laraoke Lounge with Discord.py and MongoDB (motor).
+Discord bot built for the Karaoke Lounge with Discord.py and MongoDB (motor).
 
 
 At the moment the bot is not user friendly and should not be used as is, although the cogs can be used for reference to implement similar features on other bots
